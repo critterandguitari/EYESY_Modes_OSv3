@@ -2,6 +2,9 @@ import os
 import pygame
 import glob
 
+#this mode and images are originally from the Technobear:
+#https://patchstorage.com/spinning-discs-640/
+
 #Knob1 - rotation rate
 #Knob2 - image select
 #Knob3 - index color
