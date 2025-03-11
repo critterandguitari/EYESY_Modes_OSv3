@@ -10,7 +10,6 @@ import random
 #Knob5 - background color
 
 image_index = 0
-#last_screen = pygame.Surface((10, 10))
 
 def setup(screen, eyesy) :
     global last_screen, xr, yr

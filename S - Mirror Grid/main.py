@@ -11,7 +11,7 @@ import math
 #Knob5 - background color
 
 def setup(screen, eyesy):
-    global last_point, last_point1, y72, x180, xr, yr, zehn, color_rate
+    global last_point, last_point1, y72, x180, xr, yr, zehn, color_rate, lines
     xr = eyesy.xres
     yr = eyesy.yres
     last_point = [xr/4, 0]
@@ -20,13 +20,16 @@ def setup(screen, eyesy):
     x180 = xr*0.1406 
     zehn = xr*0.014 
     color_rate = 0
+    lines = int(y72)
+    if lines > 72 :
+        lines = 72
     
 
 def draw(screen, eyesy):
-    global last_point, last_point1, y72, x180, zehn, xr, yr, color_rate
+    global last_point, last_point1, y72, x180, zehn, xr, yr, color_rate, lines
+    
     eyesy.color_picker_bg(eyesy.knob5)    
     linewidth = int(eyesy.knob1*zehn)+1
-    lines = int(y72)
     spacehoriz = (x180*eyesy.knob2)+18
     spacevert = spacehoriz
     recsize = int(zehn*eyesy.knob3)

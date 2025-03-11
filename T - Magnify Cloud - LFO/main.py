@@ -9,8 +9,6 @@ import random
 #Knob5 - background color
 
 trigger = False
-#pos = [(random.randrange(640,642),random.randrange(360,362)) for i in range(0,12)]
-
 
 class LFO : #uses three arguments: start point, max, and how far each step is.
 

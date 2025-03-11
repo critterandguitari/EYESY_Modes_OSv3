@@ -42,13 +42,13 @@ def draw(screen, eyesy):
     for i in range(100):
         #BOTTOM DISC
         color = 0x000000 #color of bottom disc.
-        rect = pygame.Rect(xres_half-int(xres * 0.195), yres_half-(square_x/2), square_x, square_x)
+        rect = pygame.Rect(xres_half-int(xres * 0.195), int(yres_half-(square_x/2)), square_x, square_x)
         rect = rect.move((sizer*math.cos(2*math.pi*i/100)+(eyesy.audio_in[i]/500) - 0.1 * width, sizer*math.sin(2*math.pi*i/100)+(eyesy.audio_in[i]/500) - 0.1 * width))
         pygame.draw.arc(screen, color, rect, start_angle + 2*math.pi*(rotation_factor-rotation_detune), stop_angle + 2*math.pi*(rotation_factor-rotation_detune), width) 
         
         #TOP DISC
         color2 = eyesy.color_picker_lfo(eyesy.knob4) #the color of the top 'disc'
-        rect = pygame.Rect(xres_half-int(xres * 0.195), yres_half-(square_x/2), square_x, square_x)
+        rect = pygame.Rect(xres_half-int(xres * 0.195), int(yres_half-(square_x/2)), square_x, square_x)
         rect = rect.move((sizer*math.cos(2*math.pi*i/100)+(eyesy.audio_in[i]/500) + 0.1 * width, sizer*math.sin(2*math.pi*i/100)+(eyesy.audio_in[i]/500) + 0.1 * width)) 
         pygame.draw.arc(screen, color2, rect, start_angle + 2*math.pi*rotation_factor, stop_angle + 2*math.pi*rotation_factor, width)
         

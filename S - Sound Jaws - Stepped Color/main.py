@@ -13,21 +13,21 @@ num = 25
 clench = 0
 teeth = 1
 toff = 1
-#last_screen = pygame.Surface((1280,720))
 r=0
 g=0
 b=0
 counter = 0
 
 def setup(screen, eyesy) :
-    global xr, yr, last_screen, color_rate
+    global xr, yr, last_screen, color_rate, lastcol1, lastcol2
     xr = eyesy.xres
     yr = eyesy.yres
     last_screen = pygame.Surface((xr,yr))
     color_rate = 0
+    lastcol2 = 0
 
 def draw(screen, eyesy) : 
-    global xr, yr, last_screen, r, g, b, counter, color_rate
+    global xr, yr, last_screen, r, g, b, counter, color_rate, lastcol2
     eyesy.color_picker_bg(eyesy.knob5)    
     xrSm = xr - (xr * 0.078) #xr - 100*xr/xr
     yrSm = yr - (yr * 0.139) #yr - 100*yr/yr
@@ -36,10 +36,7 @@ def draw(screen, eyesy) :
     image = last_screen
     last_screen = screen.copy()
     thing = pygame.transform.scale(image,((xrSm),(yrSm))) #scales down screengrab
-    #screen.blit(thing, (50,50)) #re-centers screengrab
     screen.blit(thing, (int(xr * 0.039 ),int(yr * 0.069))) #re-centers screengrab 50, 50
-   
-    color = eyesy.color_picker_lfo(eyesy.knob4)
     
     #teeth and clench
     teeth = int(eyesy.knob1 * 10)
@@ -52,6 +49,9 @@ def draw(screen, eyesy) :
     
     #top row
     for i in range(0, 10) :
+        color_rate = (i*(eyesy.knob4*0.01)+lastcol2)%1.0
+        color = eyesy.color_picker(color_rate)
+        
         x = (i * teethwidth)+teethwidth/2
         y0 = 0
         audioL = abs(eyesy.audio_in[i] / 85)      #AUDIO IN L
@@ -64,6 +64,8 @@ def draw(screen, eyesy) :
     
     #bottom row
     for i in range(10, 20) :
+        color_rate = (i*(eyesy.knob4*0.01)+lastcol2)%1.0
+        color = eyesy.color_picker(color_rate)
         x = ((i-10) * teethwidth) + teethwidth/2
         y0 = yr
         audioR = abs(eyesy.audio_in[i] / 85)      #AUDIO IN R
@@ -73,5 +75,7 @@ def draw(screen, eyesy) :
             pygame.gfxdraw.filled_trigon(screen, int(x-teethwidth/2), int(y1), int(x), int(y1-teethwidth/2), int(x+teethwidth/2), int(y1), color)
         if shape >= 2 :
             pygame.gfxdraw.filled_circle(screen, int(x), int(y1), int(teethwidth/2), color)
+    
+    lastcol2=color_rate
 
 

@@ -50,7 +50,8 @@ def seg(screen, eyesy, i, angle, j):
     xoffset = 0
     x = i * (xr / 98)
 
-    R = ((eyesy.knob2 * 2) * ((400 * xr) / xr)) - ((150 * xr) / xr)
+    #R = ((eyesy.knob2 * 2) * ((400 * xr) / xr)) - ((150 * xr) / xr)
+    R = ((eyesy.knob2 * 2) * (xr * 0.313) - (xr * 0.117)
     R = R + (eyesy.audio_in[j] / 100)
     x = R * math.cos((i / 50.) * 6.28) + (xr / 2)
     y = R * math.sin((i / 50.) * 6.28) + (yr / 2)

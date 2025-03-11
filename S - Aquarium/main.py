@@ -35,10 +35,10 @@ def update_color(sel, eyesy):
     return color
 
 def setup(screen, eyesy) :
-	global xres, yres, widthmax
-	xres = eyesy.xres
-	yres = eyesy.yres
-	widthmax = int(xres * 0.156)
+    global xres, yres, widthmax
+    xres = eyesy.xres
+    yres = eyesy.yres
+    widthmax = int(xres * 0.156)
 
 def draw(screen, eyesy) :
     global trigger, yList, widthList, countList, speedList, xden, yden, color, color_rate, widthmax, xres, yres
@@ -76,7 +76,7 @@ def draw(screen, eyesy) :
 
     if trigger == True:
         speedList = [random.randrange(-2,2)+.1 for i in range(0,20)]
-        yList = [random.randrange(-50,(eyesy.yres+50)) for i in range(0,20)]
+        yList = [random.randrange(-50,int(eyesy.yres+50)) for i in range(0,20)]
         widthList = [random.randrange(20,widthmax) for i in range(0,20)]
         trigger = False
  

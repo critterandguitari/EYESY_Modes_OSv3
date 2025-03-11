@@ -3,8 +3,6 @@ import pygame
 import math
 import random
 
-#variables
-
 #Knob1 - vertical line width
 #Knob2 - horizontal line width
 #Knob3 - speed

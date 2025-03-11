@@ -4,8 +4,6 @@ import time
 import random
 import glob
 
-#x
-
 #Knob1 - image size
 #Knob2 - y offset
 #Knob3 - circle size

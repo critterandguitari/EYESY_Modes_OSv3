@@ -10,7 +10,6 @@ import time
 #Knob4 - foreground color
 #Knob5 - background color
 
-
 def setup(screen, eyesy):
     global xr, yr, trigger, vertLines, xpos, x, y, height, width, angle
     

@@ -3,7 +3,6 @@ import pygame
 import glob
 import pygame.gfxdraw
 import math
-#import time
 
 #Knob1 - x travel direction
 #Knob2 - y travel direction

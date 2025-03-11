@@ -3,15 +3,11 @@ import pygame
 import math
 import random
 
-#x100 & variables
-
 # Knob1 - vertical bounce amount
 # Knob2 - line width
 # Knob3 - speed
 # Knob4 - foreground color
 # Knob5 - background color
-
-#y1 = y2 = xr = yr = x100 = y20 = 800
 
 class LFO:  # uses three arguments: start point, max, and how far each step is.
 
