@@ -29,7 +29,7 @@ def draw(screen, eyesy) :
         for j in range(0, 10) :
             x = (j*(x8))-(x8)
             y = (i*(y5))-(y5)
-            rad = abs(eyesy.audio_in[j+i] / (xr * 0.156)) #200
+            rad = abs((eyesy.audio_in[j+i] / 32768) * xr *.1)
             restRad = int(eyesy.knob3 * (xr * 0.023))+1 #30
             color = eyesy.color_picker_lfo(eyesy.knob4)
             if (i%2) == 1 : 

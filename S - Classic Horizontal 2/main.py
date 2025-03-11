@@ -23,10 +23,9 @@ def seg(screen, eyesy, i) :
     
     space = eyesy.xres/(lines-2)
     y0 = 0
-    #y1 = (eyesy.audio_in[i] / 90)
-    y1 = (eyesy.audio_in[i] / ((90-(eyesy.knob3*90)+1)))
+    y1 = (eyesy.audio_in[i] / 32768) * eyesy.yres * (eyesy.knob3 + .5)
     x = i*space
-    linewidth = int(eyesy.knob1*eyesy.xres/(lines-75))
+    linewidth = int(eyesy.knob1*eyesy.xres/lines)
     position = eyesy.yres/2
     ballSize = int(eyesy.knob2*eyesy.xres/(lines-75))
 

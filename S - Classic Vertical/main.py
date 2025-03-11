@@ -23,9 +23,9 @@ def draw(screen, eyesy):
 def seg(screen, eyesy, i) :
     
     x0 = 0
-    x1 = 0 + (eyesy.audio_in[i] / ((35-(eyesy.knob3*35)+1)))
+    x1 = (eyesy.audio_in[i] / 32768) * eyesy.xres * (eyesy.knob3 + .5)
     y = ((i * 8 - 40)*eyesy.yres)/eyesy.yres
-    linewidth = int(eyesy.knob1*eyesy.xres/(lines-75))
+    linewidth = int(eyesy.knob1*eyesy.xres/lines)
     position = int(.5*eyesy.xres)
     ballSize = int(eyesy.knob2*eyesy.xres/(lines-75))
     

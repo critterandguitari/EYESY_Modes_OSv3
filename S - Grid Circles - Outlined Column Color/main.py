@@ -32,7 +32,8 @@ def draw(screen, eyesy) :
             y = (i*(y5))-(y5)
             #rad = ((abs(eyesy.audio_in[j+i] / 300)) * xr)/eyesy.xres
             #restRad = int(eyesy.knob3*((30*xr)/eyesy.xres))+1
-            rad = abs(eyesy.audio_in[j+i] / (xr * 0.234)) #300
+            #rad = abs(eyesy.audio_in[j+i] / (xr * 0.234)) #300
+            rad = abs((eyesy.audio_in[j+i] / 32768) * xr *.1)
             restRad = int(eyesy.knob3 * (xr * 0.023))+1 #30
             if (i%2) == 1 : 
                 x = j*(x8)-(x8)+xoffset
